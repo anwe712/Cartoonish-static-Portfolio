@@ -8133,7 +8133,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 body {
   font-family: "Poppins", Arial, sans-serif;
-  background: black;
+  background: rgb(0,0,42);
+  background: linear-gradient(90deg, rgba(0,0,42,1) 0%, rgba(33,0,133,1) 25%, rgba(27,0,110,1) 53%, rgba(3,12,64,1) 95%, rgba(0,13,59,1) 100%, rgba(0,0,0,1) 100%, rgba(167,176,0,1) 100%, rgba(0,0,31,1) 100%);
   font-size: 18px;
   line-height: 1.8;
   font-weight: 400;
@@ -8148,10 +8149,11 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #ffbd39; }
+  color: pink; 
+}
   a:hover, a:focus {
     text-decoration: none;
-    color: #ffbd39;
+    color: pink;
     outline: none !important; }
 
 h1, h2, h3, h4, h5,
@@ -9681,3 +9683,5 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+
