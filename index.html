@@ -1052,24 +1052,33 @@
 
 
     <script>// Smooth scrolling for anchor links
-      document.addEventListener('DOMContentLoaded', function() {
-        var smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
-        
-        for (var i = 0; i < smoothScrollLinks.length; i++) {
-          smoothScrollLinks[i].addEventListener('click', function(event) {
-            event.preventDefault();
-            
-            var target = document.querySelector(this.getAttribute('href'));
-            var offset = target.offsetTop;
-            var headerHeight = document.querySelector('header').offsetHeight;
-            
-            window.scrollTo({
-              top: offset - headerHeight,
-              behavior: 'smooth'
-            });
-          });
-        }
-      });
+     // Enable scrolling on mobile devices
+document.addEventListener('DOMContentLoaded', function() {
+  var touchStartY = 0;
+  var touchStartX = 0;
+  
+  function handleTouchStart(event) {
+    touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+  }
+  
+  function handleTouchMove(event) {
+    var touchY = event.touches[0].clientY;
+    var touchX = event.touches[0].clientX;
+    var touchYDelta = touchStartY - touchY;
+    var touchXDelta = touchStartX - touchX;
+    
+    // Adjust the value below to control the sensitivity of horizontal scrolling
+    if (Math.abs(touchXDelta) > Math.abs(touchYDelta) && Math.abs(touchXDelta) > 10) {
+      event.preventDefault();
+    }
+  }
+  
+  // Add event listeners
+  document.body.addEventListener('touchstart', handleTouchStart, false);
+  document.body.addEventListener('touchmove', handleTouchMove, false);
+});
+
       </script>
   </body>
 </html>
