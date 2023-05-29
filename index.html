@@ -1049,5 +1049,27 @@
    
 
     <script src="js/main.js"></script>
+
+
+    <script>// Smooth scrolling for anchor links
+      document.addEventListener('DOMContentLoaded', function() {
+        var smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+        
+        for (var i = 0; i < smoothScrollLinks.length; i++) {
+          smoothScrollLinks[i].addEventListener('click', function(event) {
+            event.preventDefault();
+            
+            var target = document.querySelector(this.getAttribute('href'));
+            var offset = target.offsetTop;
+            var headerHeight = document.querySelector('header').offsetHeight;
+            
+            window.scrollTo({
+              top: offset - headerHeight,
+              behavior: 'smooth'
+            });
+          });
+        }
+      });
+      </script>
   </body>
 </html>
